@@ -1,0 +1,11 @@
+Django==1.7.1
+Markdown==2.5.1
+Pillow==2.6.1
+PyYAML==3.11
+django-autoslug==1.7.2
+django-enumerify==0.3.3
+django-filter==0.8
+django-rest-swagger==0.2.0
+djangorestframework==2.4.4
+sorl-thumbnail==11.12
+wsgiref==0.1.2
