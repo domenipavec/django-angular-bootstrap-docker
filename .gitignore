@@ -23,6 +23,7 @@ var/
 *.egg
 node_modules/
 bower_components/
+assets/js/templates/
 
 # Installer logs
 pip-log.txt
