@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Country</th>
+        <th>Native name</th>
+        <th>Captial</th>
+        <th>Subregion</th>
+        <th>Currencies</th>
+        <th>Languages</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-repeat="country in countries">
+        <td>{{ country.name }}</td>
+        <td>{{ country.nativeName }}</td>
+        <td>{{ country.capital }}</td>
+        <td>{{ country.subregion }}</td>
+        <td><span data-ng-repeat="currency in country.currencies">{{ currency }} </span></td>
+        <td><span data-ng-repeat="language in country.languages">{{ language }} </span></td>
+    </tr>
+    </tbody>
+</table>
