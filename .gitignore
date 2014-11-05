@@ -21,8 +21,13 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+venv-*
 node_modules/
 bower_components/
+
+# Gulp compiled files
+staticfiles/js/main.min.js
+staticfiles/css/main.min.css
 assets/js/templates/
 
 # Installer logs
@@ -51,6 +56,7 @@ coverage.xml
 # Django stuff:
 *.log
 *.pot
+*.sqlite3
 
 # Sphinx documentation
 docs/_build/
