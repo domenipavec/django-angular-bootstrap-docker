@@ -67,3 +67,7 @@ docs/_build/
 
 .DS_Store
 assets/js/intranet/dist
+
+
+# Sass
+*.sass-cache
