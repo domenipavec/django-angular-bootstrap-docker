@@ -2,8 +2,6 @@
 
 import os
 
-PROJECT_DIR_NAME = 'my_project'
-
 # CUSTOM PATH SETTINGS
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 REPO_DIR = os.path.realpath(os.path.join(PROJECT_DIR, '..'))
@@ -84,8 +82,8 @@ SWAGGER_SETTINGS = {
 }
 
 
-ROOT_URLCONF = '.'.join((PROJECT_DIR_NAME, 'urls'))
-WSGI_APPLICATION = '.'.join((PROJECT_DIR_NAME, 'wsgi.application'))
+ROOT_URLCONF = 'project.urls'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database
