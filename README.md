@@ -3,9 +3,8 @@ django-angular-bootstrap-boilerplate
 
 Getting started
 ====================================
-* *Copy or clone this repository*
-* *In your terminal open your cloned directory*
-
+* Copy or clone this repository
+* In your terminal open your cloned directory
 * virtualenv venv-myprojectname --dist
 * source venv-myprojectname/bin/activate
 * pip install -r requirements.txt
