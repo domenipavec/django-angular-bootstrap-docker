@@ -3,11 +3,18 @@ django-angular-bootstrap-boilerplate
 
 Getting started
 ====================================
-* pip install
+* *Copy or clone this repository*
+* *In your terminal open your cloned directory*
+
+* virtualenv venv-myprojectname --dist
+* source venv-myprojectname/bin/activate
+* pip install -r requirements.txt
 * sudo gem install compass
 * sudo gem install boostrap-sass
 * sudo npm install
 * bower install
+* gulp build-sass build-templates build-js
+* gulp watch
 
 Front-end directories
 ====================================

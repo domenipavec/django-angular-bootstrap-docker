@@ -47,6 +47,7 @@ gulp.task('build-sass', function() {
     gulp.src([sass_dir + '/main.scss']).
         pipe(compass({
             config_file: 'config.rb',
+            css: static_dir + '/css/untouched/',
             sass: sass_dir
         })).
         pipe(concat(global_file_name + '.css')).
