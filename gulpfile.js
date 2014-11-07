@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
+    compass = require('gulp-compass'),
     less = require('gulp-less-sourcemap'),
     minifyCSS = require('gulp-minify-css'),
     angularTemplates = require('gulp-angular-templates');
@@ -16,7 +17,7 @@ var global_file_name = 'main';
 var assets_dir = 'assets';
 var static_dir = 'staticfiles';
 var bower_dir = 'bower_components';
-var less_dir = assets_dir + '/less';
+var sass_dir = assets_dir + '/sass';
 var js_dir = assets_dir + '/js';
 var template_dir = assets_dir + '/templates';
 
@@ -42,15 +43,16 @@ gulp.task('build-js', function () {
         .pipe(gulp.dest(static_dir + '/js'))
 });
 
-/* Less task */
-gulp.task('build-less', function () {
-    return gulp.src([less_dir + '/default.less']).
-        pipe(less({
-            generateSourceMap: true
+/* Sass task */
+gulp.task('build-sass', function() {
+    gulp.src([sass_dir + '/main.scss']).
+        pipe(compass({
+            config_file: 'config.rb',
+            sass: sass_dir
         })).
         pipe(concat(global_file_name + '.css')).
         pipe(rename({suffix: '.min'})).
-        pipe(minifyCSS({keepBreaks: true})).
+        pipe(minifyCSS({})).
         pipe(gulp.dest(static_dir + '/css'));
 });
 
@@ -65,7 +67,7 @@ gulp.task('build-templates', function () {
 gulp.task('watch', function () {
     gulp.watch(js_dir + '/**/*.js', ['build-js']);
     gulp.watch(assets_dir + '/templates/**/*.html', ['build-templates']);
-    gulp.watch(less_dir + '/**/*.less', ['build-less']);
+    gulp.watch(sass_dir + '/**/*.scss', ['build-sass']);
 });
 
 gulp.task('default', ['watch']);
