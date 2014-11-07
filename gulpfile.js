@@ -6,7 +6,6 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     compass = require('gulp-compass'),
-    less = require('gulp-less-sourcemap'),
     minifyCSS = require('gulp-minify-css'),
     angularTemplates = require('gulp-angular-templates');
 
