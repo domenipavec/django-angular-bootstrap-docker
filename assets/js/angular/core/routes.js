@@ -6,9 +6,7 @@ angular.module('mainModule')
                 url: "/",
                 views: {
                     "MainView": {
-                        templateProvider: ['$timeout', '$templateCache', function ($timeout, $templateCache) {
-                            return $templateCache.get('core/landing.html');
-                        }]
+                        templateUrl: 'core/landing.html'
                     }
                 }
             })
