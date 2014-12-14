@@ -37,18 +37,20 @@ Getting started
 * bower install
 * gulp watch (to watch and build our application)
 
-> *'gulp watch'* will create 3 files. 'application.min.js' which includes our application, 'application.packages.min.js' which includes all of our packages and 'application.min.css' which includes all of our styles.
-> Our js-files in splitted into two files because of the performance when developing otherwise gulp will compile all of our packages and application files every time we'll make a change.
-> To compile our production js-file enter *'gulp build-js-production'*
+> **'gulp watch'** will create 3 files: 'application.min.js' which includes our application, 'application.packages.min.js' which includes all of our packages and 'application.min.css' which includes all of our styles. Our js-files is divided into two files because of the performance when developing, otherwise gulp will compile all of our packages and application files every time we'll make a change.
+
+> To compile our production js-file (which includes both our packages and application) enter **'gulp build-js-production'**
 
 Front-end directories
 -
 * **Angular files:** /assets/js/angular/
-* **Angular templates:** /assets/templates/
+* **Angular templates:** /assets/ng-templates/
 * **Javascript externals files:** /assets/js/external
 * **Sass files:** /assets/sass/
 
 Output files (in browser)
 ====================================
-* **CSS:** /static/css/main.min.js
-* **JS:** /static/js/main.min.js
+* **CSS:** /static/css/application.min.js
+* **JS:** /static/js/application.production.min.js
+* **JS:** /static/js/application.packages.min.js
+* **JS:** /static/js/application.min.js
