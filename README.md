@@ -50,7 +50,7 @@ Front-end directories
 
 Output files (in browser)
 ====================================
-* **CSS:** /static/css/application.min.js
+* **CSS:** /static/css/application.min.css
 * **JS:** /static/js/application.production.min.js
 * **JS:** /static/js/application.packages.min.js
 * **JS:** /static/js/application.min.js
