@@ -1,5 +1,5 @@
 angular.module('mainModule')
-    .controller('TranslateController', ['$scope', '$translate',
+    .controller('TranslateCtrl', ['$scope', '$translate',
         function ($scope, $translate) {
             $scope.currentLanguage = $translate.use();
 
