@@ -10,7 +10,7 @@
         <meta name="keywords" content="{% block meta_keywords %}{% endblock %}"/>
         <title>{% block page_title %}Blank Page{% endblock %}</title>
 
-        <link href="{% static 'css/main.min.css' %}" rel="stylesheet"/>
+        <link href="{% static 'css/application.min.css' %}" rel="stylesheet"/>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,7 +22,12 @@
     <body data-ng-app="mainModule">
     {% block page_content %}{% endblock %}
 
-    <script src="{% static 'js/main.min.js' %}"></script>
+    {% if DEBUG %}
+        <script src="{% static 'js/application.packages.min.js' %}"></script>
+        <script src="{% static 'js/application.min.js' %}"></script>
+    {% else %}
+        <script src="{% static 'js/application.production.min.js' %}"></script>
+    {% endif %}
 
     {% block js %}{% endblock %}
     </body>
