@@ -3,7 +3,7 @@ django-angular-bootstrap-boilerplate
 
 What's included?
 -
-* Django 1.7
+* Django 1.6.8
 * Django REST framework
 * Django REST Swagger
 * Django REST JWT
@@ -19,6 +19,7 @@ What's included?
 * AngularJS Bootstrap
 * AngularJS Ui router
 * Restangular
+* Angular Translate
 * Lodash
 * jQuery
 * Bootstrap
@@ -27,15 +28,18 @@ Getting started
 -
 * Copy or clone this repository
 * In your terminal open your cloned directory
-* virtualenv venv-myprojectname --dist
-* source venv-myprojectname/bin/activate
+* virtualenv env-myprojectname --dist
+* source eenv-myprojectname/bin/activate
 * pip install -r requirements.txt
 * sudo gem install compass
 * sudo gem install boostrap-sass
 * sudo npm install
 * bower install
-* gulp build-sass build-templates build-js
-* gulp watch
+* gulp watch (to watch and build our application)
+
+> *'gulp watch'* will create 3 files. 'application.min.js' which includes our application, 'application.packages.min.js' which includes all of our packages and 'application.min.css' which includes all of our styles.
+> Our js-files in splitted into two files because of the performance when developing otherwise gulp will compile all of our packages and application files every time we'll make a change.
+> To compile our production js-file enter *'gulp build-js-production'*
 
 Front-end directories
 -
