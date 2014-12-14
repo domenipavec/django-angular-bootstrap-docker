@@ -15,7 +15,7 @@ SECRET_KEY = 'MY_REALLY_SECRET_KEY'
 DEBUG = True
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = (
     # Django
@@ -121,10 +121,3 @@ MEDIA_URL = "/media/"
 
 # Template settings
 TEMPLATE_DIRS = (os.path.join(PROJECT_DIR, 'templates'),)
-
-if DEBUG:
-    print 'PROJECT_DIR:', PROJECT_DIR
-    print 'REPO_DIR:', REPO_DIR
-    print 'HOME_DIR:', HOME_DIR
-    print 'STATIC_DIR:', STATIC_DIR
-    print 'MEDIA_DIR:', MEDIA_DIR
