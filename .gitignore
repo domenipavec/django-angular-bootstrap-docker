@@ -25,10 +25,15 @@ venv-*
 node_modules/
 bower_components/
 
+
+
 # Gulp compiled files
-staticfiles/js/main.min.js
-staticfiles/css/main.min.css
-assets/js/templates/
+staticfiles/js/application.min.js
+staticfiles/js/application.packages.min.js
+staticfiles/js/application.production.min.js
+staticfiles/css/application.min.css
+staticfiles/css/untouched
+assets/js/angular/tmp/
 
 # Installer logs
 pip-log.txt
