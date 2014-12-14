@@ -1,0 +1,22 @@
+<h1 class="page-header">{{ 'lets_list_countries_in_europe' | translate }}</h1>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{ 'title_country' | translate }}</th>
+        <th>{{ 'title_native_name' | translate }}</th>
+        <th>{{ 'title_capital' | translate }}</th>
+        <th>{{ 'title_currencies' | translate }}</th>
+        <th>{{ 'title_languages' | translate }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-repeat="country in countries">
+        <td>{{ country.name }}</td>
+        <td>{{ country.nativeName }}</td>
+        <td>{{ country.capital }}</td>
+        <td><span data-ng-repeat="currency in country.currencies">{{ currency }} </span></td>
+        <td><span data-ng-repeat="language in country.languages">{{ language }} </span></td>
+    </tr>
+    </tbody>
+</table>
