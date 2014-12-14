@@ -27,6 +27,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     # Third part
+    'south',
     'rest_framework',
     'rest_framework_swagger',
     'autoslug',
