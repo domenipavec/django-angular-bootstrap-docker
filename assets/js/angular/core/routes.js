@@ -5,8 +5,24 @@ angular.module('mainModule')
             .state('index', {
                 url: "/",
                 views: {
-                    "MainView": {
+                    "FullContentView": {
                         templateUrl: 'core/landing.html'
+                    }
+                }
+            })
+            .state('index.swedish', {
+                url: "swedish/",
+                views: {
+                    "MainView@index": {
+                        templateUrl: 'core/partials/quote_in_swedish.html'
+                    }
+                }
+            })
+            .state('index.english', {
+                url: "english/",
+                views: {
+                    "MainView@index": {
+                        templateUrl: 'core/partials/quote_in_english.html'
                     }
                 }
             })
