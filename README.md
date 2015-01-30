@@ -1,7 +1,7 @@
 django-angular-bootstrap-boilerplate
 ====================================
 
-This is a boilerplate to quickly get started with your django project. The main includes of this boilerplate is Django, Django SEO Js, AngularJs and bootstrap.
+This is a boilerplate to quickly get started with your django project. The main includes of this boilerplate is Django, Django SEO Js (Prerender.io), AngularJs and bootstrap.
 
 What's included?
 -
