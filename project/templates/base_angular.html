@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 {% spaceless %}
-    {% load staticfiles %}
-    <html>
+    {% load staticfiles django_seo_js %}
+    <html data-ng-app="mainModule" ng-cloak>
     <head>
+        {% seo_js_head %}
+        <base href="/">
+
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="description" content="{% block meta_description %}{% endblock %}"/>
-        <meta name="keywords" content="{% block meta_keywords %}{% endblock %}"/>
-        <title>{% block page_title %}Blank Page{% endblock %}</title>
+
+        {% verbatim angular_page_data %}
+            <meta name="prerender-status-code" content="{{ PAGE.STATUS_CODE }}">
+            <meta name="description" content="{{ PAGE.META.DESCRIPTION }}"/>
+            <meta name="keywords" content="{{ PAGE.META.KEYWORDS }}"/>
+            <title>{{ PAGE.META.TITLE }}</title>
+        {% endverbatim angular_page_data %}
 
         <link href="{% static 'css/application.min.css' %}" rel="stylesheet"/>
 
@@ -19,12 +26,12 @@
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     </head>
-    <body data-ng-app="mainModule">
+    <body>
     {% block page_content %}{% endblock %}
 
     {% if DEBUG %}
         <script src="{% static 'js/application.packages.min.js' %}"></script>
-        <script src="{% static 'js/application.min.js' %}"></script>
+        <script src="{% static 'js/application.js' %}"></script>
     {% else %}
         <script src="{% static 'js/application.production.min.js' %}"></script>
     {% endif %}
