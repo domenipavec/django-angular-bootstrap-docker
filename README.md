@@ -59,6 +59,7 @@ Setting up Prerender
 * $ Copy your network ip (eg. 192.168.0.1)
 * $ export PRERENDER_SERVICE_URL=http:/192.168.0.1:1337
 * $ export PORT=1337
+* Open django settings.py and update SEO_JS_PRERENDER_URL to your PRERENDER_SERVICE_URL
 * $ npm start
 
 Project dir structure
@@ -68,7 +69,8 @@ Project dir structure
 * myprojectdir/prerender
 * myprojectdir/myproject
 
-
+Overview
+-
 > **'gulp watch'** will create 3 files: 'application.js' which includes our application, 'application.packages.min.js' which includes all of our packages and 'application.min.css' which includes all of our styles. Our js-files is divided into two files because of the performance when developing, otherwise gulp will compile all of our packages and application files every time we'll make a change.
 
 > To compile our production js-file (which includes both our packages and application) enter **'gulp build-js-production'**
