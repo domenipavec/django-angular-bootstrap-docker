@@ -71,8 +71,8 @@ gulp.task('build-js-packages', function () {
 gulp.task('build-js-application', function () {
     gulp.src(application_includes)
         .pipe(concat(application_name + '.js'))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
+//        .pipe(rename({suffix: '.min'}))
+//        .pipe(uglify())
         .pipe(gulp.dest(static_dir + '/js'))
 });
 

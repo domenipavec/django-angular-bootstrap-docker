@@ -1,6 +1,5 @@
 angular.module('mainModule')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("/");
         $stateProvider
             .state('index', {
                 url: "/",
@@ -14,16 +13,22 @@ angular.module('mainModule')
                 url: "swedish/",
                 views: {
                     "MainView@index": {
-                        templateUrl: 'core/partials/quote_in_swedish.html'
+                        templateUrl: 'core/partials/swedish.html'
                     }
-                }
+                },
+                onEnter: ['$translate', function($translate) {
+                    $translate.use('sv');
+                }]
             })
             .state('index.english', {
                 url: "english/",
                 views: {
                     "MainView@index": {
-                        templateUrl: 'core/partials/quote_in_english.html'
+                        templateUrl: 'core/partials/english.html'
                     }
-                }
+                },
+                onEnter: ['$translate', function($translate) {
+                    $translate.use('en');
+                }]
             })
     }]);

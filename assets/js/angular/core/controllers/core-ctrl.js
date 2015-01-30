@@ -1,4 +1,4 @@
 angular.module('mainModule')
-    .controller('CoreCtrl', ['$scope', function ($scope) {
-
+    .controller('CoreCtrl', ['PageService', function (PageService) {
+        PageService.output.coreMetaData();
     }]);

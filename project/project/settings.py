@@ -31,6 +31,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework_swagger',
     'autoslug',
+    'django_seo_js',
 
     # Apps
     'core',
@@ -57,6 +58,36 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
 )
 
+# Django SEO JS settings
+MIDDLEWARE_CLASSES = (
+    'django_seo_js.middleware.HashBangMiddleware',  # If you're using #!
+    'django_seo_js.middleware.UserAgentMiddleware',  # If you want to detect by user agent
+) + MIDDLEWARE_CLASSES
+
+SEO_JS_ENABLED = True
+SEO_JS_BACKEND = 'django_seo_js.backends.PrerenderHosted'
+SEO_JS_PRERENDER_URL = 'http://localhost:8555/'  # Note trailing slash.
+SEO_JS_PRERENDER_RECACHE_URL = 'http://localhost:8555/recache'
+
+SEO_JS_USER_AGENTS = [
+    'Googlebot',
+    'Yahoo',
+    'bingbot',
+    'Badiu',
+    'Ask Jeeves',
+    'baiduspider',
+    'twitterbot',
+    'facebookexternalhit',
+    'rogerbot',
+    'linkedinbot',
+    'embedly',
+    'quora link preview',
+    'showyoubot',
+    'outbrain',
+    'pinterest',
+    'slackbot'
+]
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.contrib.messages.context_processors.messages',
@@ -67,21 +98,20 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 SWAGGER_SETTINGS = {
-    "exclude_namespaces": [], # List URL namespaces to ignore
+    "exclude_namespaces": [],  # List URL namespaces to ignore
     "api_version": '1.0',  # Specify your API's version
     "api_path": "",  # Specify the path to your API not a root level
     "enabled_methods": [  # Specify which methods to enable in Swagger UI
-        'get',
-        'post',
-        'put',
-        'patch',
-        'delete'
+      'get',
+      'post',
+      'put',
+      'patch',
+      'delete'
     ],
-    "api_key": '', # An API key
-    "is_authenticated": False,  # Set to True to enforce user authentication,
-    "is_superuser": False,  # Set to True to enforce admin only access
+    "api_key": '',  # An API key
+    "is_authenticated": True,  # Set to True to enforce user authentication,
+    "is_superuser": True,  # Set to True to enforce admin only access
 }
-
 
 ROOT_URLCONF = 'project.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
