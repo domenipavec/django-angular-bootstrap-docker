@@ -18,7 +18,8 @@
     "angular-ui-router": "~0.2.11",
     "restangular": "~1.4.0",
     "angular-bootstrap": "~0.11.2",
-    "angular-translate": "~2.5.2"
+    "angular-translate": "~2.5.2",
+    "ng-page-head-meta": "*"
   },
   "devDependencies": {
     "angularjs": "~1.3.1",
@@ -26,6 +27,7 @@
     "angular-ui-router": "~0.2.11",
     "restangular": "~1.4.0",
     "angular-bootstrap": "~0.11.2",
-    "angular-translate": "~2.5.2"
+    "angular-translate": "~2.5.2",
+    "ng-page-head-meta": "*"
   }
 }

@@ -31,6 +31,7 @@ var packages_includes = [
     bower_dir + '/angular-bootstrap/ui-bootstrap.js',
     bower_dir + '/angular-bootstrap/ui-bootstrap-tpls.js',
     bower_dir + '/angular-translate/angular-translate.min.js',
+    bower_dir + '/ng-page-head-meta/ng-page-head-meta.min.js',
 //    bower_dir + '/jquery/dist/jquery.js',
 //    bower_dir + '/bootstrap/dist/js/bootstrap.js',
 ];
@@ -71,8 +72,6 @@ gulp.task('build-js-packages', function () {
 gulp.task('build-js-application', function () {
     gulp.src(application_includes)
         .pipe(concat(application_name + '.js'))
-//        .pipe(rename({suffix: '.min'}))
-//        .pipe(uglify())
         .pipe(gulp.dest(static_dir + '/js'))
 });
 
