@@ -8,9 +8,6 @@ angular.module('mainModule')
                     "FullContentView": {
                         templateUrl: 'errors/404.html'
                     }
-                },
-                onEnter: ['PageService', function (PageService) {
-                    PageService.output._404MetaData();
-                }]
+                }
             })
     }]);
