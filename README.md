@@ -42,6 +42,7 @@ Setting up Django
 * Update SECRET_KEY in settings.py
 * $ ./manage.py syncdb
 * $ ./manage.py migrate
+* $ sudo npm install -g bower
 * $ sudo gem install compass
 * $ sudo gem install boostrap-sass
 * $ sudo npm install
