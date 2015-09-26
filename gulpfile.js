@@ -5,9 +5,12 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    compass = require('gulp-compass'),
     minifyCSS = require('gulp-minify-css'),
     angularTemplates = require('gulp-angular-templates');
+    plumber      = require('gulp-plumber');
+    less         = require('gulp-less');
+    autoprefixer = require('gulp-autoprefixer');
+    sourcemaps   = require('gulp-sourcemaps');
 
 /* Global variables */
 var application_name = 'application';
@@ -16,7 +19,7 @@ var application_name = 'application';
 var assets_dir = 'assets';
 var static_dir = 'staticfiles';
 var bower_dir = 'bower_components';
-var sass_dir = assets_dir + '/sass';
+var less_dir = assets_dir + '/less';
 var js_dir = assets_dir + '/js';
 var ng_template_dir = assets_dir + '/ng-templates';
 
@@ -24,14 +27,14 @@ var ng_template_dir = assets_dir + '/ng-templates';
 /* Include all needed javascript packages here. */
 
 var packages_includes = [
-    bower_dir + '/lodash/dist/lodash.js',
+    bower_dir + '/lodash/lodash.js',
     bower_dir + '/angularjs/angular.js',
     bower_dir + '/angular-ui-router/release/angular-ui-router.js',
     bower_dir + '/restangular/dist/restangular.js',
     bower_dir + '/angular-bootstrap/ui-bootstrap.js',
     bower_dir + '/angular-bootstrap/ui-bootstrap-tpls.js',
-    bower_dir + '/angular-translate/angular-translate.min.js',
-    bower_dir + '/ng-page-head-meta/ng-page-head-meta.min.js',
+    bower_dir + '/angular-translate/angular-translate.js',
+    bower_dir + '/ng-page-head-meta/ng-page-head-meta.js',
 //    bower_dir + '/jquery/dist/jquery.js',
 //    bower_dir + '/bootstrap/dist/js/bootstrap.js',
 ];
@@ -46,7 +49,10 @@ var application_includes = [
 /* Include all of your projects styling here.
  *  For example you could include a third-party css file here. */
 var style_includes = [
-    sass_dir + '/**/*.scss',
+    less_dir + '/main.less',
+];
+var style_watches = [
+	less_dir + '/**/*.less',
 ];
 
 /* Include all template paths here, for now all of our angular
@@ -62,31 +68,50 @@ var ng_template_includes = [
 /* Task to build our javascript packages */
 gulp.task('build-js-packages', function () {
     gulp.src(packages_includes)
-        .pipe(concat(application_name + '.packages.js'))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
-        .pipe(gulp.dest(static_dir + '/js'))
+		.pipe(sourcemaps.init())
+		.pipe(concat(application_name + '.packages.js'))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(uglify())
+		.pipe(sourcemaps.write('.', {
+			sourceRoot: static_dir + '/js',
+		}))
+		.pipe(gulp.dest(static_dir + '/js'))
 });
 
 /* Task to build our javascript application */
 gulp.task('build-js-application', function () {
-    gulp.src(application_includes)
-        .pipe(concat(application_name + '.js'))
-        .pipe(gulp.dest(static_dir + '/js'))
+	gulp.src(application_includes)
+		.pipe(sourcemaps.init())
+		.pipe(concat(application_name + '.js'))
+			.pipe(sourcemaps.write('.', {
+			sourceRoot: static_dir + '/js',
+		}))
+		.pipe(gulp.dest(static_dir + '/js'))
 });
 
 /* Sass task */
 gulp.task('build-css', function () {
-    gulp.src(style_includes).
-        pipe(compass({
-            config_file: 'config.rb',
-            css: static_dir + '/css/untouched/',
-            sass: sass_dir
-        })).
-        pipe(concat(application_name + '.css')).
-        pipe(rename({suffix: '.min'})).
-        pipe(minifyCSS({})).
-        pipe(gulp.dest(static_dir + '/css'));
+	gulp.src(style_includes)
+		.pipe(plumber())
+		.pipe(sourcemaps.init())
+		.pipe(less())
+		.pipe(concat(application_name + '.css'))
+		.pipe(autoprefixer({
+			browsers: [
+				'last 2 versions',
+				'ie 8',
+				'ie 9',
+				'android 2.3',
+				'android 4',
+				'opera 12'
+			]
+		}))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(minifyCSS({}))
+		.pipe(sourcemaps.write('.', {
+			sourceRoot: static_dir + '/css',
+		}))
+		.pipe(gulp.dest(static_dir + '/css'));
 });
 
 gulp.task('build-angular-templates', function () {
@@ -115,5 +140,5 @@ gulp.task('watch', function () {
     gulp.watch(packages_includes, ['build-js-packages']);
     gulp.watch(application_includes, ['build-js-application']);
     gulp.watch(ng_template_includes, ['build-angular-templates']);
-    gulp.watch(style_includes, ['build-css']);
+    gulp.watch(style_watches, ['build-css']);
 });

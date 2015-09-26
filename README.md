@@ -1,13 +1,12 @@
 django-angular-bootstrap-boilerplate
 ====================================
 
-This is a boilerplate to quickly get started with your django project. The main includes of this boilerplate is Django, Django SEO Js (Prerender.io), AngularJs and bootstrap.
+This is a modified version from https://github.com/iktw/django-angular-bootstrap-boilerplate, modified with newer versions, python3, less instead of sass, source maps, ...
+This is a boilerplate to quickly get started with your django project. The main includes of this boilerplate is Django, AngularJs and bootstrap.
 
 What's included?
 -
-* Django 1.6.8
-* Django Seo JS
-* South
+* Django 1.8.4
 * Django REST framework
 * Django REST Swagger
 * Django REST JWT
@@ -28,46 +27,37 @@ What's included?
 * jQuery
 * Bootstrap
 
+On ubuntu update node and npm
+-
+* $ sudo npm cache clean -f
+* $ sudo npm install -g n
+* $ sudo n stable
+* $ sudo npm install npm -g
+
 Setting up Django
 -
 * $ mkdir myprojectdir
 * $ cd myprojectdir
 * $ virtualenv env --dist
 * $ source env/bin/activate
-* $ git clone https://github.com/iktw/django-angular-bootstrap-boilerplate.git
+* $ git clone https://github.com/matematik7/django-angular-bootstrap-boilerplate.git
 * $ cd django-angular-bootstrap-boilerplate
 * $ mv django-angular-bootstrap-boilerplate/ myproject/
-* $ pip install -r requirements.txt (Remeber to stand in your env)
+* $ pip3 install -r requirements.txt (Remeber to stand in your env)
 * Generate a SECRET_KEY at http://www.miniwebtool.com/django-secret-key-generator/
 * Update SECRET_KEY in settings.py
 * $ ./manage.py syncdb
 * $ ./manage.py migrate
-* $ sudo npm install -g bower
-* $ sudo gem install compass
-* $ sudo gem install boostrap-sass
-* $ sudo npm install
+* $ sudo npm install -g gulp bower
+* $ npm install
 * $ bower install
 * $ gulp watch (to watch and build our application)
 * $ ./manage.py runserver
-
-Setting up Prerender
--
-* Open a new terminal instance and then open your projectdir
-* $ git clone https://github.com/prerender/prerender.git
-* $ cd prerender
-* $ npm install
-* $ ifconfig |grep inet
-* $ Copy your network ip (eg. 192.168.0.1)
-* $ export PRERENDER_SERVICE_URL=http:/192.168.0.1:1337
-* $ export PORT=1337
-* Open django settings.py and update SEO_JS_PRERENDER_URL to your PRERENDER_SERVICE_URL
-* $ npm start
 
 Project dir structure
 -
 * myprojectdir
 * myprojectdir/env
-* myprojectdir/prerender
 * myprojectdir/myproject
 
 What our gulp watch does
@@ -81,7 +71,7 @@ Front-end directories
 * **Angular files:** /assets/js/angular/
 * **Angular templates:** /assets/ng-templates/
 * **Javascript externals files:** /assets/js/external
-* **Sass files:** /assets/sass/
+* **Less files:** /assets/less/
 
 Output files (in browser)
 ====================================
