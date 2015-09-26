@@ -46,7 +46,6 @@ Setting up Django
 * $ pip3 install -r requirements.txt (Remeber to stand in your env)
 * Generate a SECRET_KEY at http://www.miniwebtool.com/django-secret-key-generator/
 * Update SECRET_KEY in settings.py
-* $ ./manage.py syncdb
 * $ ./manage.py migrate
 * $ sudo npm install -g gulp bower
 * $ npm install
