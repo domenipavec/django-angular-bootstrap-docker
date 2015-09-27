@@ -21,6 +21,7 @@ urlpatterns = [
 	# API ESSENTIALS
 	url(r'^api/token-auth/', 'rest_framework_jwt.views.obtain_jwt_token'),
 	url(r'^api/docs/', include('rest_framework_swagger.urls')),
+	url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
 
 	# MEDIA PATH
 	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),

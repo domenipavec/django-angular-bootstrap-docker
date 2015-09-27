@@ -1,0 +1,23 @@
+<page-meta-data status-code="200">
+	<title>Login</title>
+</page-meta-data>
+
+<div data-ng-controller="LoginCtrl">
+	<div class="container">
+		<form class="form-signin" name="formsignin">
+			<h2 class="form-signin-heading">Please login</h2>
+
+			<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
+
+			<label for="inputUsername" class="sr-only">Username</label>
+			<input type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="username">
+
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="password">
+
+			<button class="btn btn-lg btn-primary btn-block" ng-click="login()">Login</button>
+		</form>
+
+	</div> <!-- /container -->
+</div>
+
