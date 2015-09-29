@@ -53,6 +53,10 @@ Setting up Django
 * $ gulp watch (to watch and build our application)
 * $ ./manage.py runserver
 
+Production mysql
+-
+* $ pip3 install mysqlclient
+
 Project dir structure
 -
 * myprojectdir
