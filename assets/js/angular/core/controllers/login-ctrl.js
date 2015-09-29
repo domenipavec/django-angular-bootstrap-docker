@@ -1,4 +1,15 @@
 angular.module('mainModule').controller('LoginCtrl', ['$scope', '$http', '$window', function ($scope, $http, $window) {
+	$scope.loginDisabled = true;
+	// get csrf cookie
+	$http({
+		method: 'GET',
+		url: '/api/auth/login/'
+	}).success(function() {
+		$scope.loginDisabled = false;
+	}).error(function(data) {
+		$scope.error = data;
+	});
+
 	$scope.login = function() {
 		if ($scope.formsignin.$valid) {
 			$http({
