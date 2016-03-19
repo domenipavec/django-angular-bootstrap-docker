@@ -1,7 +1,7 @@
 django-angular-bootstrap-boilerplate
 ====================================
 
-This is a modified version from https://github.com/iktw/django-angular-bootstrap-boilerplate, modified with newer versions, python3, less instead of sass, source maps, ...
+This is a docker version of https://github.com/iktw/django-angular-bootstrap-boilerplate, modified with newer versions, python3, less instead of sass, source maps, ...
 This is a boilerplate to quickly get started with your django project. The main includes of this boilerplate is Django, AngularJs and bootstrap.
 
 What's included?
@@ -27,35 +27,10 @@ What's included?
 * jQuery
 * Bootstrap
 
-On ubuntu update node and npm
+Usage
 -
-* $ sudo npm cache clean -f
-* $ sudo npm install -g n
-* $ sudo n stable
-* $ sudo npm install npm -g
-
-Setting up Django
--
-* $ mkdir myprojectdir
-* $ cd myprojectdir
-* $ virtualenv env --dist
-* $ source env/bin/activate
-* $ git clone https://github.com/matematik7/django-angular-bootstrap-boilerplate.git
-* $ cd django-angular-bootstrap-boilerplate
-* $ mv django-angular-bootstrap-boilerplate/ myproject/
-* $ pip3 install -r requirements.txt (Remeber to stand in your env)
-* Generate a SECRET_KEY at http://www.miniwebtool.com/django-secret-key-generator/
-* Update SECRET_KEY in settings.py
-* $ ./manage.py migrate
-* $ sudo npm install -g gulp bower
-* $ npm install
-* $ bower install
-* $ gulp watch (to watch and build our application)
-* $ ./manage.py runserver
-
-Production mysql
--
-* $ pip3 install mysqlclient
+* $ pip3 install -r requirements-dev.txt
+* $ fab dev
 
 Project dir structure
 -

@@ -1,0 +1,16 @@
+*.pyc
+nina/localsettings.py
+requirements-dev.txt
+fabfile.py
+db.sqlite3
+env*
+*/__pycache__/*
+*/__pycache__
+upload.sh
+log
+bower_components*
+node_modules*
+staticfiles*
+.git
+.git/*
+.gitignore

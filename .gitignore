@@ -28,17 +28,7 @@ bower_components/
 
 
 # Gulp compiled files
-staticfiles/js/application.js
-staticfiles/js/application.js.map
-staticfiles/js/application.min.js
-staticfiles/js/application.min.js.map
-staticfiles/js/application.packages.min.js
-staticfiles/js/application.packages.min.js.map
-staticfiles/js/application.production.min.js
-staticfiles/js/application.production.min.js.map
-staticfiles/css/application.min.css
-staticfiles/css/application.min.css.map
-staticfiles/css/untouched
+staticfiles/
 assets/js/angular/tmp/
 
 # Installer logs
@@ -82,3 +72,5 @@ assets/js/intranet/dist
 
 # Sass
 *.sass-cache
+
+project/project/localsettings.py

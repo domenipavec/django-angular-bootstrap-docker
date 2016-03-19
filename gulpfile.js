@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    minifyCSS = require('gulp-minify-css'),
+    cleanCSS = require('gulp-clean-css'),
     angularTemplates = require('gulp-angular-templates');
     plumber      = require('gulp-plumber');
     less         = require('gulp-less');
@@ -107,7 +107,7 @@ gulp.task('build-css', function () {
 			]
 		}))
 		.pipe(rename({suffix: '.min'}))
-		.pipe(minifyCSS({}))
+		.pipe(cleanCSS({}))
 		.pipe(sourcemaps.write('.', {
 			sourceRoot: static_dir + '/css',
 		}))

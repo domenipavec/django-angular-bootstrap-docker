@@ -22,11 +22,8 @@ MEDIA_DIR = os.path.realpath(os.path.join(HOME_DIR, 'media'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'MY_REALLY_SECRET_KEY'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -95,18 +92,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-	}
-}
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -136,3 +121,8 @@ STATICFILES_DIRS = (
 # Media settings
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = "/media/"
+
+try:
+    from .localsettings import *
+except ImportError as e:
+    logger.warning("Running without localsettings")
