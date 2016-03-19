@@ -32,7 +32,7 @@ CONTAINER_FIND = 'docker ps | grep {container}'.format(container=CONTAINER_NAME)
 CONTAINER_RENAME_OLD = 'docker rename {container} {container}-old'.format(container=CONTAINER_NAME)
 CONTAINER_STOP_OLD = 'docker stop {container}-old'.format(container=CONTAINER_NAME)
 CONTAINER_RM_OLD = 'docker rm -v {container}-old'.format(container=CONTAINER_NAME)
-CONTAINER_PRODUCTION = 'docker run -d -e "VIRTUAL_HOST={host}" -e "LETSENCRYPT_HOST={host}" -e "LETSENCRYPT_EMAIL={email}" --restart=always --name={container} {image}'.format(image=IMAGE_NAME, container=CONTAINER_NAME, host=PRODUCTION_HOST, email=LETSENCRYPT_EMAIL)
+CONTAINER_PRODUCTION = 'docker run -d -e "VIRTUAL_HOST={host}" -e "LETSENCRYPT_HOST={host}" -e "LETSENCRYPT_EMAIL={email}" --link mysql:mysql --restart=always --name={container} {image}'.format(image=IMAGE_NAME, container=CONTAINER_NAME, host=PRODUCTION_HOST, email=LETSENCRYPT_EMAIL)
 
 
 def build():
