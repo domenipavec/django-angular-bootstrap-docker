@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
+import logging
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
@@ -18,6 +20,8 @@ REPO_DIR = os.path.realpath(os.path.join(BASE_DIR, '..'))
 HOME_DIR = os.path.realpath(os.path.join(REPO_DIR, '..'))
 STATIC_DIR = os.path.realpath(os.path.join(HOME_DIR, 'staticfiles'))
 MEDIA_DIR = os.path.realpath(os.path.join(HOME_DIR, 'media'))
+
+logger = logging.getLogger(__name__)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
